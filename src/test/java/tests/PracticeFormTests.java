@@ -2,19 +2,16 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.components.PracticeFormResultComponent;
-import utils.RandomUtils;
+import utils.TestData;
 
-import static utils.RandomUtils.getCity;
-import static utils.RandomUtils.getState;
-
+import static utils.RandomUtils.city;
+import static utils.RandomUtils.state;
 
 public class PracticeFormTests extends tests.TestBase {
     PracticeFormResultComponent tableUserInfo = new PracticeFormResultComponent();
-    RandomUtils random = new RandomUtils();
-
+    TestData random = new TestData();
     @Test
     void fillFormTest() {
-        String state = getState(), city = getCity(state);
 
         practiceFormPage.openPage()
                 .setFirstName(random.firstName)

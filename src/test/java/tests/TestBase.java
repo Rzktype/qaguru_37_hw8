@@ -14,15 +14,15 @@ public class TestBase {
     public TextBoxPage textBoxPage = new TextBoxPage();
 
     @BeforeAll
-    static void beforeAll() {
+    static void setupConfig() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
     }
 
     @AfterEach
-    void afterEach() {
-
+    void cleanUp() {
+        Selenide.clearBrowserCookies();
         Selenide.closeWebDriver();
     }
 
